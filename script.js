@@ -1,5 +1,17 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Match the logo image width to the subtitle text width below it
+function syncLogoWidth() {
+  const logo = document.querySelector('.logo');
+  const img = document.querySelector('.logo-img');
+  const label = logo ? logo.querySelector('span') : null;
+  if (!logo || !img || !label) return;
+  const setWidth = () => { img.style.width = label.getBoundingClientRect().width + 'px'; };
+  if (img.complete) setWidth(); else img.addEventListener('load', setWidth);
+  window.addEventListener('resize', setWidth);
+}
+syncLogoWidth();
+
 // FAQ accordion
 document.querySelectorAll('.faq-item').forEach(item => {
   const q = item.querySelector('.faq-q');

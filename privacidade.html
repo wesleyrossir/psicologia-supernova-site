@@ -10,7 +10,7 @@
 
 <header>
   <div class="nav wrap">
-    <a href="/" class="logo">Psicologia Supernova<span>Psicoterapia intercultural</span></a>
+    <a href="/" class="logo"><img src="/images/logo-supernova.png" alt="Psicologia Supernova" class="logo-img"><span>Psicoterapia intercultural</span></a>
     <div class="nav-cta">
       <a href="/" class="btn btn-outline btn-sm">Voltar ao site</a>
     </div>
@@ -50,6 +50,17 @@
     <span>© <span id="year"></span> Psicologia Supernova · Wesley Rossi Rodrigues · CRP 19065-1</span>
   </div>
 </footer>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+(function(){
+  const logo = document.querySelector('.logo');
+  const img = document.querySelector('.logo-img');
+  const label = logo ? logo.querySelector('span') : null;
+  if (!logo || !img || !label) return;
+  const setWidth = () => { img.style.width = label.getBoundingClientRect().width + 'px'; };
+  if (img.complete) setWidth(); else img.addEventListener('load', setWidth);
+  window.addEventListener('resize', setWidth);
+})();
+</script>
 </body>
 </html>
