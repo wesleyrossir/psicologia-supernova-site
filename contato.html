@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Contato — Psicologia Supernova</title>
+<meta name="description" content="Fale com a Psicologia Supernova. Envie sua mensagem e receba retorno por e-mail ou WhatsApp.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%231F4A52%22/></svg>">
+<link rel="stylesheet" href="/styles.css?v=4">
+</head>
+<body>
+
+<header>
+  <div class="nav wrap">
+    <a href="/" class="logo"><img src="/images/logo-supernova.png" alt="Psicologia Supernova" class="logo-img"></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/#sobre">Sobre</a></li>
+        <li><a href="/#areas">Áreas</a></li>
+        <li><a href="/#alcance">Exterior</a></li>
+        <li><a href="/#faq">Dúvidas</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="/contato.html" class="btn btn-outline btn-sm">Contato</a>
+      <a href="https://wa.me/351924064792?text=Ol%C3%A1!%20Encontrei%20a%20Psicologia%20Supernova%20e%20moro%20no%20exterior.%20Gostaria%20de%20saber%20mais%20sobre%20a%20psicoterapia%20online." class="btn btn-primary btn-sm" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+    <button class="nav-toggle" aria-label="Abrir menu" id="navToggle"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section style="padding-bottom:0;">
+    <div class="wrap" style="text-align:center; max-width:640px;">
+      <span class="eyebrow">Contato</span>
+      <h1 style="font-size:clamp(1.8rem,3.4vw,2.4rem);">Vamos conversar sobre o que você está vivendo.</h1>
+      <p style="color:var(--ink-soft);">Preencha o formulário abaixo. Sua mensagem é enviada diretamente para o nosso e-mail e respondemos o quanto antes.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="contact-grid">
+        <form class="contact-form" action="/contato.php" method="POST" id="contatoForm">
+          <div id="formBanner"></div>
+          <div class="form-row">
+            <label for="nome">Nome completo *</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+          <div class="form-row form-row-2">
+            <div>
+              <label for="telefone">Telefone *</label>
+              <input type="tel" id="telefone" name="telefone" required>
+            </div>
+            <div>
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="assunto">Assunto *</label>
+            <input type="text" id="assunto" name="assunto" required>
+          </div>
+          <div class="form-row">
+            <label for="mensagem">Mensagem *</label>
+            <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
+          </div>
+          <input type="text" name="empresa" class="hp-field" tabindex="-1" autocomplete="off">
+          <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+          <p class="form-note">Você também pode escrever direto para <a href="mailto:contato@psicologiasupernova.com">contato@psicologiasupernova.com</a>.</p>
+        </form>
+
+        <aside class="company-card">
+          <h3>Psicologia Supernova</h3>
+          <ul class="company-info">
+            <li><strong>Razão social</strong><span>Supernova Soluções em Desenvolvimento Humano LTDA</span></li>
+            <li><strong>Endereço</strong><span>Av. Pau Brasil, 10, Sala 930, Edif. Le Quartier<br>Águas Claras, Brasília, DF, Brasil, 71.926-000</span></li>
+            <li><strong>E-mail</strong><span><a href="mailto:contato@psicologiasupernova.com">contato@psicologiasupernova.com</a></span></li>
+            <li><strong>Telefone</strong><span><a href="tel:+5561991611997">+55 61 99161-1997</a></span></li>
+          </ul>
+          <a href="https://wa.me/351924064792" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="margin-top:6px;">Falar no WhatsApp</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <div class="footer-logo">Psicologia Supernova</div>
+      <div class="footer-tagline">"Psicologia, ciência com evidência."</div>
+    </div>
+    <div>
+      <h4>Navegação</h4>
+      <ul class="footer-links">
+        <li><a href="/#sobre">Sobre</a></li>
+        <li><a href="/#areas">Áreas de acolhimento</a></li>
+        <li><a href="/#faq">Dúvidas frequentes</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/351924064792" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="mailto:contato@psicologiasupernova.com">contato@psicologiasupernova.com</a></li>
+        <li><a href="/privacidade.html">Política de Privacidade</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© <span id="year"></span> Psicologia Supernova · Wesley Rossi Rodrigues · CRP 19065-1</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/351924064792" class="wa-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">💬</a>
+
+<script src="/script.js?v=4"></script>
+<script>
+(function(){
+  const params = new URLSearchParams(location.search);
+  const status = params.get('status');
+  if (!status) return;
+  const banner = document.getElementById('formBanner');
+  const messages = {
+    ok: ['ok', 'Mensagem enviada com sucesso. Responderemos em breve.'],
+    faltando: ['error', 'Preencha todos os campos obrigatórios antes de enviar.'],
+    'email-invalido': ['error', 'Informe um e-mail válido.'],
+    erro: ['error', 'Não foi possível enviar agora. Tente novamente ou escreva para contato@psicologiasupernova.com.']
+  };
+  const [type, text] = messages[status] || ['error', 'Ocorreu um erro. Tente novamente.'];
+  banner.innerHTML = '<div class="form-banner ' + type + '">' + text + '</div>';
+  if (type === 'ok') document.getElementById('contatoForm').reset();
+  history.replaceState(null, '', '/contato.html');
+})();
+</script>
+</body>
+</html>

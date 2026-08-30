@@ -229,6 +229,39 @@ footer a:hover{color:var(--white);}
   display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:.82rem; color:rgba(255,255,255,.6);
 }
 
+/* Contact page */
+.contact-grid{display:grid; grid-template-columns:1.3fr .9fr; gap:40px; align-items:start;}
+.contact-form{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:36px; display:flex; flex-direction:column; gap:18px;}
+.form-row{display:flex; flex-direction:column; gap:6px;}
+.form-row-2{flex-direction:row; gap:18px;}
+.form-row-2 > div{flex:1; display:flex; flex-direction:column; gap:6px;}
+.contact-form label{font-size:.85rem; font-weight:600; color:var(--navy);}
+.contact-form input, .contact-form textarea{
+  font-family:inherit; font-size:.98rem; padding:12px 14px; border-radius:10px;
+  border:1.5px solid var(--line); background:var(--bg); color:var(--ink); resize:vertical;
+}
+.contact-form input:focus, .contact-form textarea:focus{outline:none; border-color:var(--petrol);}
+.contact-form .btn{align-self:flex-start; margin-top:4px;}
+.form-note{font-size:.85rem; color:var(--ink-soft); margin:0;}
+.hp-field{position:absolute; left:-9999px; width:1px; height:1px; opacity:0;}
+.form-banner{padding:14px 18px; border-radius:12px; margin:0 0 20px; font-size:.95rem; font-weight:500;}
+.form-banner.ok{background:var(--sage-soft); color:var(--petrol-dark); border:1px solid var(--sage);}
+.form-banner.error{background:var(--terracotta-soft); color:#8a3d1f; border:1px solid var(--terracotta);}
+.company-card{background:var(--navy); color:rgba(255,255,255,.9); border-radius:var(--radius); padding:32px;}
+.company-card h3{color:var(--white); font-size:1.2rem; margin-bottom:18px;}
+.company-info{list-style:none; margin:0 0 20px; padding:0; display:grid; gap:16px;}
+.company-info strong{display:block; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--sage); margin-bottom:4px;}
+.company-info span{font-size:.92rem; color:rgba(255,255,255,.88); line-height:1.5;}
+.company-info a{color:rgba(255,255,255,.92); text-decoration:underline;}
+.company-card .btn-outline{border-color:rgba(255,255,255,.5); color:var(--white);}
+.company-card .btn-outline:hover{background:rgba(255,255,255,.12); color:var(--white);}
+
+@media (max-width: 800px){
+  .contact-grid{grid-template-columns:1fr;}
+  .form-row-2{flex-direction:column;}
+  .contact-form{padding:26px;}
+}
+
 /* WhatsApp float */
 .wa-float{
   position:fixed; right:22px; bottom:22px; z-index:60;
