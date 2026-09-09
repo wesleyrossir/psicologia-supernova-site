@@ -75,6 +75,44 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
+// Testimonial carousel
+(function () {
+  const track = document.getElementById('testiTrack');
+  const prev = document.getElementById('testiPrev');
+  const next = document.getElementById('testiNext');
+  const dotsWrap = document.getElementById('testiDots');
+  if (!track || !prev || !next || !dotsWrap) return;
+
+  const cards = Array.from(track.children);
+  cards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Ir para depoimento ' + (i + 1));
+    dot.addEventListener('click', () => cards[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' }));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function cardsPerView() {
+    const cardWidth = cards[0].getBoundingClientRect().width;
+    return Math.max(1, Math.round(track.getBoundingClientRect().width / cardWidth));
+  }
+
+  function scrollByCards(dir) {
+    const amount = cards[0].getBoundingClientRect().width + 20; // gap
+    track.scrollBy({ left: dir * amount * cardsPerView(), behavior: 'smooth' });
+  }
+
+  prev.addEventListener('click', () => scrollByCards(-1));
+  next.addEventListener('click', () => scrollByCards(1));
+
+  track.addEventListener('scroll', () => {
+    const index = Math.round(track.scrollLeft / (cards[0].getBoundingClientRect().width + 20));
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+  });
+})();
+
 // Meta Pixel: track WhatsApp CTA clicks as Contact events
 document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
   link.addEventListener('click', () => {

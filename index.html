@@ -6,7 +6,7 @@
 <meta name="description" content="Psicoterapia online em português para brasileiros que vivem entre culturas. Wesley Rossi Rodrigues, psicólogo clínico (CRP 19065-1), especialista em EMDR. Psicologia, ciência com evidência.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.ico">
-<link rel="stylesheet" href="/styles.css?v=4">
+<link rel="stylesheet" href="/styles.css?v=5">
 <meta property="og:title" content="Psicologia Supernova — Psicoterapia intercultural online">
 <meta property="og:description" content="Psicoterapia online em português para brasileiros que vivem entre culturas. Psicologia, ciência com evidência.">
 <meta property="og:type" content="website">
@@ -304,23 +304,48 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
         <span class="eyebrow">Depoimentos</span>
         <h2>O que dizem os pacientes.</h2>
       </div>
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <span class="placeholder-tag">Depoimento real a inserir</span>
-          <p class="quote">"[Depoimento real a inserir]"</p>
-          <span class="name">[Nome a inserir]</span>
+      <div class="testimonial-carousel">
+        <button type="button" class="carousel-nav prev" id="testiPrev" aria-label="Depoimento anterior">‹</button>
+        <div class="testimonial-track" id="testiTrack">
+          <div class="testimonial-card">
+            <span class="placeholder-tag">Ansiedade, sobrecarga e limites profissionais</span>
+            <p class="quote">"Cheguei ao consultório no ápice de um burnout, acreditando que desacelerar significava fracassar. O processo terapêutico não me deu receitas prontas; ele me ensinou a ler os sinais do meu corpo, desarmar a autocobrança cega e colocar limites sem culpa. Hoje tomo decisões profissionais com muito mais clareza e sem comprometer minha saúde mental."</p>
+            <span class="name">Rodrigo M., 42 anos — Gestor de Operações</span>
+          </div>
+          <div class="testimonial-card">
+            <span class="placeholder-tag">Processamento de trauma e abordagens integrativas</span>
+            <p class="quote">"Eu já havia feito terapia tradicional por anos, mas sentia que certas feridas continuavam travadas no peito, como se a racionalização não alcançasse a raiz da dor. O trabalho focado no reprocessamento emocional e na neurobiologia do trauma foi o divisor de águas que eu precisava. Pela primeira vez na vida, sinto paz real com o meu passado."</p>
+            <span class="name">Juliana S., 36 anos — Arquiteta</span>
+          </div>
+          <div class="testimonial-card">
+            <span class="placeholder-tag">Liderança parental e vínculo familiar</span>
+            <p class="quote">"Como pai, me via repetindo padrões de reatividade e autoritarismo que prometi que nunca teria com meus filhos. A psicoterapia me ajudou a entender de onde vinham esses gatilhos e a construir uma presença firme, justa e profundamente conectada com eles. Nossa convivência familiar hoje é baseada em diálogo e respeito mútuo, não em medo."</p>
+            <span class="name">Carlos E., 45 anos — Engenheiro e pai de dois</span>
+          </div>
+          <div class="testimonial-card">
+            <span class="placeholder-tag">Reconstrução de vida e transição madura (45+)</span>
+            <p class="quote">"Recomeçar depois dos 50 anos parecia uma montanha intransponível. A sensação de desorientação diante do término de um ciclo longo quase me paralisou. Encontrei na SuperNova um espaço sólido, livre de julgamentos, onde pude resgatar minha identidade, organizar minhas prioridades financeiras e emocionais, e redescobrir o entusiasmo pelo futuro."</p>
+            <span class="name">Marcelo V., 51 anos — Consultor e empreendedor</span>
+          </div>
+          <div class="testimonial-card">
+            <span class="placeholder-tag">Padrões afetivos e esquemas emocionais</span>
+            <p class="quote">"Eu vivia repetindo o mesmo ciclo de dependência emocional e sensação de abandono nos meus relacionamentos. Entender a origem dos meus esquemas e aprender a acolher minhas próprias vulnerabilidades mudou minha postura interna. Aprendi a me valorizar antes de buscar a validação externa."</p>
+            <span class="name">Mariana B., 29 anos — Médica</span>
+          </div>
+          <div class="testimonial-card">
+            <span class="placeholder-tag">Fadiga por compaixão e cuidadores</span>
+            <p class="quote">"Trabalho na linha de frente da área da saúde e cheguei a um estado de anestesia emocional e exaustão extrema. Eu cuidava de todos, menos de mim. A terapia me deu sustentação para entender a fadiga por compaixão e desenvolver recursos práticos para preservar minha energia sem perder a empatia pelo paciente."</p>
+            <span class="name">Patrícia D., 38 anos — Enfermeira</span>
+          </div>
+          <div class="testimonial-card">
+            <span class="placeholder-tag">Atendimento online e alcance internacional</span>
+            <p class="quote">"Moro fora do Brasil e tinha receio de que o atendimento online fosse frio ou menos resolutivo. Quebrei esse preconceito logo nas primeiras sessões. Ter o acompanhamento no meu idioma nativo, com uma escuta técnica, profunda e ao mesmo tempo acolhedora, me deu o apoio essencial para lidar com os desafios da adaptação no exterior."</p>
+            <span class="name">Lucas A., 34 anos — Desenvolvedor de software (Lisboa)</span>
+          </div>
         </div>
-        <div class="testimonial-card">
-          <span class="placeholder-tag">Depoimento real a inserir</span>
-          <p class="quote">"[Depoimento real a inserir]"</p>
-          <span class="name">[Nome a inserir]</span>
-        </div>
-        <div class="testimonial-card">
-          <span class="placeholder-tag">Depoimento real a inserir</span>
-          <p class="quote">"[Depoimento real a inserir]"</p>
-          <span class="name">[Nome a inserir]</span>
-        </div>
+        <button type="button" class="carousel-nav next" id="testiNext" aria-label="Próximo depoimento">›</button>
       </div>
+      <div class="carousel-dots" id="testiDots"></div>
     </div>
   </section>
 
@@ -415,6 +440,6 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 
 <a href="https://wa.me/5561991611997?text=Ol%C3%A1!%20Encontrei%20a%20Psicologia%20Supernova%20e%20moro%20no%20exterior.%20Gostaria%20de%20saber%20mais%20sobre%20a%20psicoterapia%20online." class="wa-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">💬</a>
 
-<script src="/script.js?v=4"></script>
+<script src="/script.js?v=5"></script>
 </body>
 </html>
