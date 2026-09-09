@@ -113,6 +113,21 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 })();
 
+// Countries chip carousel
+(function () {
+  const track = document.getElementById('chipsTrack');
+  const prev = document.getElementById('chipsPrev');
+  const next = document.getElementById('chipsNext');
+  if (!track || !prev || !next) return;
+
+  function scrollByChips(dir) {
+    track.scrollBy({ left: dir * track.getBoundingClientRect().width * 0.8, behavior: 'smooth' });
+  }
+
+  prev.addEventListener('click', () => scrollByChips(-1));
+  next.addEventListener('click', () => scrollByChips(1));
+})();
+
 // Meta Pixel: track WhatsApp CTA clicks as Contact events
 document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
   link.addEventListener('click', () => {
