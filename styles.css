@@ -203,7 +203,8 @@ section{padding:88px 0;}
   padding:10px 26px; display:inline-block; margin:6px 0 8px;
 }
 .pricing-card .price-unit{font-family:'Figtree',sans-serif; font-size:1rem; font-weight:400; color:var(--ink-soft);}
-.pricing-card .price-note{font-size:.85rem; color:var(--ink-soft); margin:0 0 26px;}
+.pricing-card .price-eur{font-size:.85rem; color:var(--ink-soft); margin:0 0 6px;}
+.pricing-card .price-note{font-size:.72rem; color:var(--ink-soft); margin:0 0 26px;}
 .pricing-includes{list-style:none; padding:0; margin:0 auto 30px; display:grid; gap:10px; text-align:left; max-width:380px;}
 .pricing-includes li{display:flex; gap:10px; font-size:.95rem; color:var(--ink-soft);}
 .pricing-includes li::before{content:"✓"; color:var(--sage);}
