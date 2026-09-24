@@ -124,7 +124,8 @@ header{
 /* Hero */
 .hero{padding:64px 0 40px;}
 .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;}
-.hero h1{font-size:clamp(2.1rem, 4vw, 3.1rem); letter-spacing:-.01em;}
+.hero-headline{font-size:clamp(2.1rem, 4vw, 3.1rem); letter-spacing:-.01em;}
+.hero-kicker{display:block; font-size:.78rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--petrol); margin:0 0 4px;}
 .hero-sub{font-size:1.12rem; color:var(--ink-soft); max-width:46ch;}
 .hero-line{font-size:.9rem; color:var(--ink-soft); margin-top:18px;}
 .hero-ctas{display:flex; gap:14px; margin-top:26px; flex-wrap:wrap;}
