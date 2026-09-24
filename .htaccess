@@ -4,3 +4,7 @@ RewriteEngine On
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^ https://psicologiasupernova.com.br%{REQUEST_URI} [L,R=301,NE]
+
+# Remove /index.html duplicado da home
+RewriteCond %{THE_REQUEST} /index\.html[?\s] [NC]
+RewriteRule ^index\.html$ / [L,R=301]
