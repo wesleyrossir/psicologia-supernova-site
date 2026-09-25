@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /contato.php
+Disallow: /api/
+Disallow: /admin/
 
 Sitemap: https://psicologiasupernova.com.br/sitemap.xml
