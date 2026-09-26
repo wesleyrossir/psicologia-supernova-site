@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tactiq para Terapeutas: Transcrição e IA clínica sem perder tempo nem sigilo</title>
+<meta name="description" content="Curso de 5 módulos enxutos para psicólogos, terapeutas e coaches usarem transcrição e IA nas sessões online, com segurança, ética e LGPD.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #050505;
+    --bg-alt: #16161a;
+    --surface-card: #17171b;
+    --surface-card-soft: rgba(244,240,230,.035);
+    --ink: #050505;
+    --text: #F7F2E8;
+    --text-soft: rgba(244,240,230,.68);
+    --text-muted: rgba(244,240,230,.52);
+    --gold: #C9A961;
+    --gold-300: #DCC489;
+    --gold-champ: #F0E2B0;
+    --gold-900: #4A3A18;
+    --gold-700: #B89968;
+    --authority: #1B2845;
+    --wine: #6B2737;
+    --rule-gold: rgba(201,169,97,.24);
+    --rule-dark: rgba(244,240,230,.10);
+    --border-gold: 1px solid #C9A961;
+    --border-gold-soft: 1px solid rgba(201,169,97,.30);
+    --border-dark: 1px solid rgba(244,240,230,.08);
+    --grad-hero: linear-gradient(180deg, #050505 0%, #1B2845 100%);
+    --grad-cta: linear-gradient(90deg, #4A3A18 0%, #9A7E3E 15%, #C9A961 35%, #F0E2B0 50%, #C9A961 65%, #9A7E3E 85%, #4A3A18 100%);
+    --grad-gold-fill: linear-gradient(180deg, #DCC489 0%, #C9A961 48%, #A4863C 100%);
+    --shadow-cta: 0 8px 24px rgba(140,106,31,.34);
+    --font-display: 'Lora', Georgia, serif;
+    --font-body: 'Inter', system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--gold); font-weight:600;
+  }
+
+  /* Ticker */
+  .ticker{
+    background:#0c0c0f;border-bottom:var(--border-dark);
+    overflow:hidden;white-space:nowrap;padding:8px 0;
+  }
+  .ticker-track{display:inline-block;animation:scroll-left 28s linear infinite;}
+  .ticker-track span{
+    display:inline-block;padding:0 18px;font-size:12px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--text-muted);
+  }
+  .ticker-track span.gold{color:var(--gold);}
+  @keyframes scroll-left{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* Header sticky */
+  header.topbar{
+    position:sticky;top:0;z-index:50;background:rgba(5,5,5,.92);
+    backdrop-filter:blur(6px);border-bottom:var(--border-dark);
+  }
+  .topbar-inner{
+    max-width:1040px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  }
+  .logo{
+    font-family:var(--font-display);font-size:19px;line-height:1.1;
+  }
+  .logo b{display:block;color:var(--gold);font-weight:600;letter-spacing:.02em;}
+  .logo small{display:block;font-size:11px;letter-spacing:.14em;color:var(--text-muted);text-transform:uppercase;}
+  .countdown{display:flex;align-items:center;gap:10px;}
+  .countdown-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-right:4px;}
+  .countdown-box{
+    border:var(--border-gold-soft);border-radius:4px;padding:6px 10px;text-align:center;min-width:44px;
+  }
+  .countdown-box b{display:block;font-family:var(--font-display);font-size:18px;color:var(--gold-300);}
+  .countdown-box span{display:block;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);}
+  .btn-cta{
+    display:inline-block;background:var(--grad-cta);color:var(--ink);
+    font-weight:700;font-size:15px;padding:12px 26px;border-radius:4px;
+    box-shadow:var(--shadow-cta);border:none;cursor:pointer;
+    background-size:200% 100%;transition:background-position .4s ease, transform .2s ease;
+  }
+  .btn-cta:hover{background-position:100% 0;transform:translateY(-1px);}
+  .btn-cta.block{display:block;width:100%;text-align:center;}
+
+  /* Hero */
+  .hero{
+    background:var(--grad-hero);
+    padding:64px 0 56px;position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at 30% 20%, rgba(201,169,97,.10) 0%, transparent 60%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;max-width:720px;}
+  .hero h1{
+    font-family:var(--font-display);font-weight:500;
+    font-size:44px;line-height:1.18;letter-spacing:-.01em;margin:18px 0 20px;
+  }
+  .hero h1 .gold{
+    background:linear-gradient(90deg,var(--gold-300),var(--gold),var(--gold-700));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{font-size:18px;color:var(--text-soft);max-width:600px;margin-bottom:28px;}
+  .hero p.lead b{color:var(--text);font-weight:600;}
+  .hero-meta{
+    display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-muted);
+    margin-bottom:28px;
+  }
+  .hero-cta-row{display:flex;flex-direction:column;gap:10px;max-width:340px;margin-bottom:36px;}
+  .hero-cta-note{font-size:13px;color:var(--text-muted);text-align:center;}
+  .stats-row{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+    border-top:var(--border-dark);padding-top:24px;max-width:640px;
+  }
+  .stats-row div{font-size:13px;color:var(--text-soft);}
+  .stats-row b{display:block;font-family:var(--font-display);font-size:20px;color:var(--gold-300);margin-bottom:2px;}
+
+  section{padding:64px 0;}
+  .section-head{max-width:640px;margin-bottom:40px;}
+  .section-head h2{
+    font-family:var(--font-display);font-weight:500;font-size:32px;line-height:1.25;margin-top:10px;
+  }
+  .section-head p{color:var(--text-soft);margin-top:14px;font-size:16px;}
+
+  /* Diagnóstico cards */
+  .pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+  .pain-card{
+    background:var(--surface-card);border:var(--border-dark);border-radius:8px;padding:22px 22px 20px;
+  }
+  .pain-card q{
+    display:block;font-family:var(--font-display);font-style:italic;font-size:18px;color:var(--gold-300);
+    margin-bottom:10px;quotes:none;
+  }
+  .pain-card p{font-size:14.5px;color:var(--text-soft);}
+
+  .rule{border:none;border-top:1px solid var(--rule-gold);margin:0;}
+
+  /* Método / módulos */
+  .modulo-list{display:flex;flex-direction:column;gap:0;}
+  .modulo-item{
+    display:grid;grid-template-columns:64px 1fr auto;gap:18px;align-items:start;
+    padding:22px 0;border-bottom:var(--border-dark);
+  }
+  .modulo-item:first-child{border-top:var(--border-dark);}
+  .modulo-num{
+    font-family:var(--font-display);font-size:28px;color:var(--gold);opacity:.7;
+  }
+  .modulo-item h3{font-size:18px;font-weight:600;margin-bottom:6px;}
+  .modulo-item p{font-size:14.5px;color:var(--text-soft);}
+  .modulo-dur{font-size:12.5px;color:var(--text-muted);white-space:nowrap;padding-top:6px;}
+
+  /* Incluso */
+  .incluso-box{
+    background:var(--surface-card);border:var(--border-gold-soft);border-radius:10px;padding:32px;
+  }
+  .incluso-box h3{font-family:var(--font-display);font-size:20px;font-weight:500;margin-bottom:18px;color:var(--gold-300);}
+  .incluso-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+  .incluso-list li{display:flex;gap:10px;font-size:15px;color:var(--text-soft);align-items:flex-start;}
+  .incluso-list li::before{content:"✦";color:var(--gold);flex-shrink:0;margin-top:1px;}
+
+  /* Pricing */
+  .price-wrap{
+    background:var(--surface-card);border:var(--border-gold);border-radius:12px;
+    padding:40px 32px;text-align:center;max-width:520px;margin:0 auto;
+  }
+  .price-tag{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+  .price-old{font-size:16px;color:var(--text-muted);text-decoration:line-through;margin-bottom:4px;}
+  .price-main{font-family:var(--font-display);font-size:56px;color:var(--gold-300);line-height:1;margin-bottom:6px;}
+  .price-main sup{font-size:22px;vertical-align:top;top:6px;position:relative;}
+  .price-installments{font-size:14px;color:var(--text-soft);margin-bottom:24px;}
+  .price-guarantee{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    font-size:13px;color:var(--text-muted);margin-top:18px;
+  }
+  .ladder{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0;
+    border-top:var(--border-dark);border-bottom:var(--border-dark);padding:20px 0;
+  }
+  .ladder div{font-size:12.5px;color:var(--text-muted);}
+  .ladder div.active{color:var(--gold-300);}
+  .ladder b{display:block;font-family:var(--font-display);font-size:19px;color:var(--text);margin-top:2px;}
+  .ladder div.active b{color:var(--gold-300);}
+
+  /* Honestidade */
+  .honest-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .honest-col h4{font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;}
+  .honest-col.not h4{color:var(--wine);}
+  .honest-col.yes h4{color:var(--gold);}
+  .honest-col ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
+  .honest-col li{font-size:14.5px;color:var(--text-soft);padding-left:20px;position:relative;}
+  .honest-col.not li::before{content:"×";position:absolute;left:0;color:var(--wine);}
+  .honest-col.yes li::before{content:"✦";position:absolute;left:0;color:var(--gold);}
+
+  /* Sobre */
+  .about-grid{display:grid;grid-template-columns:180px 1fr;gap:32px;align-items:start;}
+  .about-photo{
+    width:180px;height:180px;border-radius:50%;object-fit:cover;border:var(--border-gold-soft);
+  }
+  .about-grid h3{font-family:var(--font-display);font-size:24px;font-weight:500;margin-bottom:14px;}
+  .about-grid p{font-size:15px;color:var(--text-soft);margin-bottom:12px;}
+  .about-grid .book-tag{
+    display:inline-flex;align-items:center;gap:10px;background:var(--surface-card-soft);
+    border:var(--border-dark);border-radius:6px;padding:8px 12px;margin-top:8px;font-size:13px;color:var(--text-muted);
+  }
+  .about-grid .book-tag img{width:28px;height:38px;object-fit:cover;border-radius:2px;}
+
+  /* FAQ */
+  .faq-item{border-bottom:var(--border-dark);}
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;color:var(--text);
+    font-size:16px;font-weight:600;padding:18px 0;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:var(--font-body);
+  }
+  .faq-q .arrow{color:var(--gold);transition:transform .25s ease;font-size:14px;}
+  .faq-item.open .faq-q .arrow{transform:rotate(180deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .faq-item.open .faq-a{max-height:300px;}
+  .faq-a p{padding-bottom:18px;font-size:14.5px;color:var(--text-soft);}
+
+  footer{
+    border-top:var(--border-dark);padding:36px 0;text-align:center;
+    font-size:12.5px;color:var(--text-muted);
+  }
+  footer a{color:var(--text-muted);text-decoration:underline;}
+
+  .sticky-bottom{
+    position:sticky;bottom:0;z-index:40;background:rgba(5,5,5,.96);backdrop-filter:blur(6px);
+    border-top:var(--border-dark);padding:14px 0;
+  }
+  .sticky-bottom-inner{
+    max-width:1040px;margin:0 auto;padding:0 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  }
+  .sticky-bottom .price-inline{font-size:14px;color:var(--text-soft);}
+  .sticky-bottom .price-inline b{color:var(--gold-300);font-family:var(--font-display);font-size:18px;}
+
+  @media (max-width:720px){
+    .hero h1{font-size:32px;}
+    .section-head h2{font-size:26px;}
+    .about-grid{grid-template-columns:1fr;text-align:center;}
+    .about-photo{margin:0 auto;}
+    .honest-grid{grid-template-columns:1fr;}
+    .modulo-item{grid-template-columns:40px 1fr;}
+    .modulo-dur{grid-column:2;padding-top:0;}
+    .ladder{grid-template-columns:1fr;text-align:center;}
+    .stats-row{grid-template-columns:1fr;}
+    .countdown-label{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="gold">TACTIQ PARA TERAPEUTAS</span>
+    <span>5 MÓDULOS OBJETIVOS</span>
+    <span class="gold">TRANSCRIÇÃO + IA CLÍNICA</span>
+    <span>SIGILO, ÉTICA E LGPD EM PRIMEIRO LUGAR</span>
+    <span class="gold">TACTIQ PARA TERAPEUTAS</span>
+    <span>5 MÓDULOS OBJETIVOS</span>
+    <span class="gold">TRANSCRIÇÃO + IA CLÍNICA</span>
+    <span>SIGILO, ÉTICA E LGPD EM PRIMEIRO LUGAR</span>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">
+      <b>TACTIQ</b>
+      <small>Para Terapeutas</small>
+    </div>
+    <div class="countdown">
+      <span class="countdown-label">Lote de lançamento em</span>
+      <div class="countdown-box"><b id="cd-h">--</b><span>H</span></div>
+      <div class="countdown-box"><b id="cd-m">--</b><span>MIN</span></div>
+      <div class="countdown-box"><b id="cd-s">--</b><span>SEG</span></div>
+    </div>
+    <a href="#preco" class="btn-cta">Garantir minha vaga</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Curso online · 5 módulos · para psicólogos, terapeutas e coaches</span>
+    <h1>Pare de perder tempo escrevendo relatório.<br><span class="gold">Deixe a IA trabalhar</span> depois da sessão, não durante ela.</h1>
+    <p class="lead">Aprenda a usar o Tactiq nas suas sessões online (Meet, Zoom ou Teams) para transcrever, organizar e transformar cada atendimento em relatório clínico pronto, <b>com sigilo profissional e LGPD levados a sério</b>, não como nota de rodapé.</p>
+    <div class="hero-meta">
+      <span>Feito por um psicólogo, para quem atende pacientes de verdade</span>
+    </div>
+    <div class="hero-cta-row">
+      <a href="#preco" class="btn-cta block">Quero economizar meu tempo</a>
+      <span class="hero-cta-note">Acesso vitalício · garantia de 7 dias</span>
+    </div>
+    <div class="stats-row">
+      <div><b>5</b>Módulos direto ao ponto, sem enrolação</div>
+      <div><b>~85 min</b>De curso, não 8 horas de vídeo</div>
+      <div><b>6</b>Prompts de IA prontos para prática clínica</div>
+    </div>
+  </div>
+</section>
+
+<section id="diagnostico">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">O diagnóstico</span>
+      <h2>Você atende bem. Mas depois da sessão, o trabalho ainda não acabou.</h2>
+      <p>Se algum destes cenários é familiar, o problema não é a sua clínica, é a falta de um processo pra documentar o que acontece nela.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <q>"Termino a sessão e ainda preciso lembrar tudo pra escrever depois"</q>
+        <p>Você confia na memória pra reconstruir uma hora de conversa, e algum detalhe importante sempre escapa.</p>
+      </div>
+      <div class="pain-card">
+        <q>"Uso IA às vezes, mas não sei se estou fazendo isso do jeito certo"</q>
+        <p>Ninguém te ensinou como aplicar inteligência artificial numa transcrição clínica sem expor dado sensível do paciente.</p>
+      </div>
+      <div class="pain-card">
+        <q>"Prontuário e ficha de evolução viram tarefa de fim de semana"</q>
+        <p>O que deveria ser automático acumula, e o registro fica desatualizado justo na parte mais importante do trabalho.</p>
+      </div>
+      <div class="pain-card">
+        <q>"Tenho medo de estar em desacordo com a LGPD e nem saber"</q>
+        <p>Você sabe que dado de saúde é sensível, mas não tem clareza de como armazenar, reter e proteger isso na prática.</p>
+      </div>
+      <div class="pain-card">
+        <q>"Já testei ferramenta de transcrição e desisti, achei complicado"</q>
+        <p>A tecnologia existe, mas ninguém explicou o fluxo de um jeito pensado pra rotina de quem atende paciente, não empresa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="metodo">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">O método</span>
+      <h2>5 módulos. Nenhum enrolando você.</h2>
+      <p>Cada módulo resolve uma etapa do processo, da instalação até a ética. Sem repetição, sem gordura, sem aula genérica de "produtividade".</p>
+    </div>
+    <div class="modulo-list">
+      <div class="modulo-item">
+        <span class="modulo-num">01</span>
+        <div>
+          <h3>Introdução ao Tactiq para Terapeutas</h3>
+          <p>O que é a ferramenta, por que ela faz sentido na sua rotina clínica e o que você vai construir ao longo do curso.</p>
+        </div>
+        <span class="modulo-dur">~7 min</span>
+      </div>
+      <div class="modulo-item">
+        <span class="modulo-num">02</span>
+        <div>
+          <h3>Instalação e Configuração</h3>
+          <p>Extensão instalada, conta configurada e pastas organizadas por paciente, do jeito certo, desde a primeira sessão.</p>
+        </div>
+        <span class="modulo-dur">~14 min</span>
+      </div>
+      <div class="modulo-item">
+        <span class="modulo-num">03</span>
+        <div>
+          <h3>Usando nas Suas Chamadas</h3>
+          <p>O fluxo mestre de transcrição aplicado no Google Meet, com os ajustes específicos pra Zoom e Microsoft Teams.</p>
+        </div>
+        <span class="modulo-dur">~17 min</span>
+      </div>
+      <div class="modulo-item">
+        <span class="modulo-num">04</span>
+        <div>
+          <h3>IA Aplicada à Prática Clínica</h3>
+          <p>A lógica por trás de um bom prompt, 6 prompts prontos pra relatório e ficha de evolução, e automação com workflows.</p>
+        </div>
+        <span class="modulo-dur">~22 min</span>
+      </div>
+      <div class="modulo-item">
+        <span class="modulo-num">05</span>
+        <div>
+          <h3>Ética, LGPD e Consentimento</h3>
+          <p>Sigilo profissional, dados sensíveis, consentimento informado, e o fechamento de tudo o que você construiu no curso.</p>
+        </div>
+        <span class="modulo-dur">~18 min</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="incluso">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Incluso na inscrição</span>
+      <h2>O que você recebe ao entrar hoje</h2>
+    </div>
+    <div class="incluso-box">
+      <h3>Acesso completo e vitalício</h3>
+      <ul class="incluso-list">
+        <li>5 videoaulas objetivas, disponíveis para assistir no seu ritmo</li>
+        <li>6 prompts de IA prontos para copiar, colar e adaptar à sua abordagem</li>
+        <li>Checklist de boas práticas de LGPD e sigilo profissional</li>
+        <li>Modelo de frase de consentimento informado, pronto para usar na primeira sessão</li>
+        <li>Acesso vitalício às atualizações do curso</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="preco">
+  <div class="wrap">
+    <div class="section-head" style="text-align:center;margin:0 auto 32px;">
+      <span class="eyebrow" style="display:block;">Investimento</span>
+      <h2>Menos do que uma sessão. Pra nunca mais perder tempo depois de nenhuma outra.</h2>
+    </div>
+    <div class="price-wrap">
+      <div class="price-tag">Lote de lançamento</div>
+      <div class="price-old">De R$ 597,00</div>
+      <div class="price-main"><sup>R$</sup>297<sup>,00</sup></div>
+      <div class="price-installments">ou 10x de R$ 29,70 no cartão</div>
+      <a href="#" class="btn-cta block" id="hotmart-link">Garantir minha vaga agora</a>
+      <div class="ladder">
+        <div class="active">Hoje<b>R$ 297</b></div>
+        <div>Próximo lote<b>R$ 397</b></div>
+        <div>Preço cheio<b>R$ 597</b></div>
+      </div>
+      <div class="price-guarantee">✦ Pagamento seguro via Hotmart · garantia incondicional de 7 dias</div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="honestidade">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Honestidade</span>
+      <h2>Esse curso não é pra todo mundo.</h2>
+    </div>
+    <div class="honest-grid">
+      <div class="honest-col not">
+        <h4>Não é para quem quer</h4>
+        <ul>
+          <li>Um curso genérico de produtividade sem nada específico da clínica</li>
+          <li>Aprender a "usar o ChatGPT" de um jeito qualquer, sem pensar em sigilo</li>
+          <li>Horas de teoria sem nenhuma tela mostrando o passo a passo</li>
+        </ul>
+      </div>
+      <div class="honest-col yes">
+        <h4>É para quem está disposto a</h4>
+        <ul>
+          <li>Implementar um processo novo na próxima sessão, não "quando sobrar tempo"</li>
+          <li>Tratar a transcrição da sessão com o mesmo cuidado do prontuário em papel</li>
+          <li>Usar tecnologia para devolver tempo à própria rotina, sem abrir mão da ética</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="sobre">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Quem ensina</span>
+      <h2>Feito por quem também está na cadeira do terapeuta</h2>
+    </div>
+    <div class="about-grid">
+      <img class="about-photo" src="images/wesley-bio.jpg" alt="Wesley Rossi Rodrigues">
+      <div>
+        <h3>Wesley Rossi Rodrigues</h3>
+        <p>Psicólogo, criador da Psicologia SuperNova e da Saúde SuperNova. Atende online, sabe exatamente o tanto de tempo que uma transcrição manual e um relatório mal organizado tomam de uma semana de trabalho, e por isso desenhou esse curso do jeito que ele gostaria de ter recebido quando começou a atender por chamada de vídeo.</p>
+        <p>Esse curso segue a mesma linha do <b>Método Supernova</b>: tecnologia e ciência a serviço do cuidado, nunca no lugar dele.</p>
+        <span class="book-tag">
+          <img src="images/metodo-supernova-capa.jpg" alt="Método Supernova">
+          Leia também: Método Supernova
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Dúvidas</span>
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Preciso saber mexer bem em tecnologia?<span class="arrow">▾</span></button>
+        <div class="faq-a"><p>Não. O curso parte do zero: instalação da extensão, configuração da conta e uso passo a passo, com gravação de tela em cada etapa.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Isso é seguro pra dados de paciente?<span class="arrow">▾</span></button>
+        <div class="faq-a"><p>O curso inteiro é desenhado em torno disso. O Módulo 5 é dedicado exclusivamente a sigilo profissional, LGPD aplicada a dados clínicos e consentimento informado.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Funciona se eu atendo pelo Zoom ou Teams, não só Meet?<span class="arrow">▾</span></button>
+        <div class="faq-a"><p>Sim. O Módulo 3 ensina um fluxo universal aplicado em profundidade no Google Meet, com as diferenças específicas de Zoom e Microsoft Teams.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Sou coach, não psicólogo. Serve pra mim?<span class="arrow">▾</span></button>
+        <div class="faq-a"><p>Sim. Todo o fluxo técnico e de organização se aplica. As partes sobre sigilo e ética são especialmente relevantes pra quem atende psicólogos e terapeutas, mas os princípios de proteção de dados valem para qualquer atendimento sensível.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">E se eu não gostar do curso?<span class="arrow">▾</span></button>
+        <div class="faq-a"><p>Garantia incondicional de 7 dias. Se sentir que não era pra você, é só pedir o reembolso, sem burocracia.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Como funciona o pagamento?<span class="arrow">▾</span></button>
+        <div class="faq-a"><p>Cartão de crédito parcelado em até 10x, Pix ou boleto, via plataforma Hotmart, com transação segura.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sticky-bottom">
+  <div class="sticky-bottom-inner">
+    <span class="price-inline">Lote de lançamento: <b>R$ 297,00</b></span>
+    <a href="#preco" class="btn-cta">Garantir minha vaga</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    Tactiq para Terapeutas · Psicologia SuperNova · Wesley Rossi Rodrigues<br>
+    © 2026 Psicologia SuperNova · Todos os direitos reservados
+  </div>
+</footer>
+
+<script>
+  // Countdown (lote de lançamento, 48h a partir do primeiro acesso do visitante)
+  (function(){
+    var key = 'tactiq_lote_deadline';
+    var deadline = null;
+    try{ deadline = localStorage.getItem(key); }catch(e){}
+    if(!deadline){
+      deadline = Date.now() + 48*60*60*1000;
+      try{ localStorage.setItem(key, deadline); }catch(e){}
+    }
+    deadline = parseInt(deadline, 10);
+    function tick(){
+      var diff = deadline - Date.now();
+      if(diff < 0) diff = 0;
+      var h = Math.floor(diff/3600000);
+      var m = Math.floor((diff%3600000)/60000);
+      var s = Math.floor((diff%60000)/1000);
+      document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+      document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+      document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-q').addEventListener('click', function(){
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i){ i.classList.remove('open'); });
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
