@@ -210,7 +210,7 @@ section{padding:88px 0;}
 .pricing-includes li{display:flex; gap:10px; font-size:.95rem; color:var(--ink-soft);}
 .pricing-includes li::before{content:"✓"; color:var(--sage);}
 
-/* Social proof / testimonials — carousel */
+/* Social proof / testimonials: carousel */
 .testimonial-carousel{display:flex; align-items:stretch; gap:14px;}
 .testimonial-track{
   display:flex; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth;
@@ -249,7 +249,7 @@ section{padding:88px 0;}
 .about-photo img{width:100%; height:100%; object-fit:cover;}
 .credential-list{list-style:none; margin:22px 0 0; padding:0; display:grid; gap:10px;}
 .credential-list li{display:flex; gap:10px; align-items:baseline; font-size:.98rem; color:var(--ink-soft);}
-.credential-list li::before{content:"—"; color:var(--terracotta); font-weight:700;}
+.credential-list li::before{content:"•"; color:var(--terracotta); font-weight:700;}
 
 /* Author box (artigos do blog) */
 .article-author{display:flex; gap:20px; align-items:flex-start; padding:28px; border-radius:var(--radius); background:var(--bg-alt); margin:40px 0;}
