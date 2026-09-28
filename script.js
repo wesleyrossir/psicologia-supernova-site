@@ -1,14 +1,28 @@
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Cookie consent — gates Meta Pixel init/track (GDPR: EU/PT/ES traffic)
+// Cookie consent: gates Meta Pixel and Google Analytics 4 (GDPR/LGPD)
 const PIXEL_ID = '1540166894464352';
+const GA_ID = 'G-C7C0XFMCKC';
 const CONSENT_KEY = 'sn_cookie_consent';
 
 function initPixel() {
   if (typeof fbq !== 'function') return;
   fbq('init', PIXEL_ID);
   fbq('track', 'PageView');
+}
+
+function initGA() {
+  if (window.__gaLoaded) return;
+  window.__gaLoaded = true;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { window.dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', GA_ID);
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+  document.head.appendChild(s);
 }
 
 function showCookieBanner() {
@@ -28,6 +42,7 @@ function showCookieBanner() {
   document.getElementById('cookieAccept').addEventListener('click', () => {
     localStorage.setItem(CONSENT_KEY, 'granted');
     initPixel();
+    initGA();
     hideCookieBanner();
   });
   document.getElementById('cookieDecline').addEventListener('click', () => {
@@ -46,7 +61,7 @@ function hideCookieBanner() {
 (function initCookieConsent() {
   let consent;
   try { consent = localStorage.getItem(CONSENT_KEY); } catch (e) { consent = null; }
-  if (consent === 'granted') initPixel();
+  if (consent === 'granted') { initPixel(); initGA(); }
   else if (consent !== 'denied') showCookieBanner();
 })();
 
@@ -128,10 +143,11 @@ document.querySelectorAll('.faq-item').forEach(item => {
   next.addEventListener('click', () => scrollByChips(1));
 })();
 
-// Meta Pixel: track WhatsApp CTA clicks as Contact events
+// Track WhatsApp CTA clicks (Meta Pixel Contact + GA4 generate_lead)
 document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
   link.addEventListener('click', () => {
     if (typeof fbq === 'function') fbq('track', 'Contact');
+    if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'whatsapp' });
   });
 });
 
