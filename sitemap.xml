@@ -145,6 +145,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://psicologiasupernova.com.br/metodo-supernova/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://psicologiasupernova.com.br/guia-do-paciente/</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
