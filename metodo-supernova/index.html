@@ -103,6 +103,11 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
   .ms-offer ul{margin:0 0 6px; padding:0; list-style:none; display:grid; gap:12px;}
   .ms-offer li{display:flex; gap:10px; color:var(--ink-soft); font-size:.98rem;}
   .ms-offer li::before{content:"✓"; color:var(--terracotta); font-weight:700; flex-shrink:0;}
+  .ms-cert{display:flex; gap:22px; align-items:center; background:var(--terracotta-soft); border:1px solid #E8CDBB; border-radius:18px; padding:18px 22px; margin:22px 0 4px;}
+  .ms-cert picture{flex:none; width:112px; height:112px;}
+  .ms-cert img{width:112px; height:112px; max-width:none; object-fit:contain; filter:drop-shadow(0 6px 10px rgba(22,51,60,.28));}
+  .ms-cert h3{font-size:1.1rem; margin:0 0 4px;}
+  .ms-cert p{margin:0; font-size:.92rem; color:var(--ink-soft);}
   .ms-price{border-top:1px dashed var(--line); margin-top:24px; padding-top:24px; display:flex; flex-wrap:wrap; gap:18px; align-items:center; justify-content:space-between;}
   .ms-price .label{font-size:.76rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 4px;}
   .ms-price .value{font-family:'Newsreader',serif; font-size:1.7rem; font-weight:600; color:var(--terracotta); margin:0;}
@@ -125,6 +130,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
     .ms-about .about-photo{max-width:380px; margin:0 auto; aspect-ratio:1/1;}
   }
   @media (max-width:640px){
+    .ms-cert{flex-direction:column; text-align:center;}
     .ms-modules{grid-template-columns:1fr;}
     .ms-facts{grid-template-columns:1fr;}
     .ms-exit{margin-left:0;}
@@ -277,6 +283,10 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
           <li>Plano de segurança e de reconstrução, passo a passo</li>
           <li>Certificado Guardião SuperNova para quem concluir o módulo 5 (reconhece participação, não é título profissional)</li>
         </ul>
+        <div class="ms-cert">
+          <picture><source srcset="/images/selo-guardiao-supernova.webp" type="image/webp"><img src="/images/selo-guardiao-supernova.png" width="112" height="112" alt="Selo do Certificado Guardião SuperNova: uma estrela em explosão e um caminho de luz"></picture>
+          <div><h3>Certificado Guardião SuperNova</h3><p>Entregue a quem concluir o módulo 5. Reconhece o compromisso de acolher, escutar e encaminhar com responsabilidade. Não é título profissional.</p></div>
+        </div>
         <div class="ms-price">
           <div>
             <p class="label">Preço de fundação · turma piloto</p>
