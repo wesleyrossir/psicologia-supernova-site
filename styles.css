@@ -362,6 +362,12 @@ footer a:hover{color:var(--white);}
 .company-card .btn-outline{border-color:rgba(255,255,255,.5); color:var(--white);}
 .company-card .btn-outline:hover{background:rgba(255,255,255,.12); color:var(--white);}
 
+
+.contact-side{display:flex; flex-direction:column; gap:20px;}
+.agenda-card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:26px 30px;}
+.agenda-card h3{font-size:1.15rem; margin-bottom:8px; color:var(--navy);}
+.agenda-card p{font-size:.92rem; color:var(--ink-soft); margin:0 0 16px; line-height:1.5;}
+
 @media (max-width: 800px){
   .contact-grid{grid-template-columns:1fr;}
   .form-row-2{flex-direction:column;}
